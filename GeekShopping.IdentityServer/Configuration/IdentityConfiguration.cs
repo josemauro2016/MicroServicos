@@ -1,11 +1,12 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
 
 namespace GeekShopping.IdentityServer.Configuration;
 
 public static class IdentityConfiguration
 {
     public const string Admin = "Admin";
-    public const string Costumer = "Costumer";
+    public const string Client = "Client";
 
     public static IEnumerable<IdentityResource> identityResources =>
         new List<IdentityResource>
@@ -33,6 +34,21 @@ public static class IdentityConfiguration
                 ClientSecrets = { new Secret("my_super_secret".Sha256())},
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 AllowedScopes = {"read", "write", "profile"}
+            },
+            new Client
+            {
+                ClientId = "geek_shopping",
+                ClientSecrets = { new Secret("my_super_secret".Sha256())},
+                AllowedGrantTypes = GrantTypes.Code,
+                RedirectUris = {"https://localhost:4430/signin-oidc"},
+                PostLogoutRedirectUris = {"https://localhost:4430/signout-callback-oidc"},
+                AllowedScopes = new List<string>
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.Email,
+                    "geek_shopping"
+                }
             },
         };
 }
