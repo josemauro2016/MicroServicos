@@ -20,7 +20,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.AddControllers();
 
-builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
+builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
 {
     options.Authority = "https://localhost:4435/";
     options.TokenValidationParameters = new TokenValidationParameters
@@ -80,8 +80,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

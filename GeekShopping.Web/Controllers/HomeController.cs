@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using GeekShopping.Web.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,7 @@ namespace GeekShopping.Web.Controllers
         [Authorize]
         public async Task<IActionResult> Login()
         {
+            var contest = await HttpContext.GetTokenAsync("access_token");
             return RedirectToAction(nameof(Index));
         }
 

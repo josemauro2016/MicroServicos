@@ -16,6 +16,7 @@ public class ProductController : Controller
     }
 
     [Authorize]
+    [HttpGet]
     public async Task<IActionResult> ProductIndex()
     {
         var products = await _productService.FindAllProducts();
