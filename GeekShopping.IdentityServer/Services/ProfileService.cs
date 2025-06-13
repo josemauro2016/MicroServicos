@@ -23,7 +23,7 @@ public ProfileService(UserManager<ApplicationUser> userManager, RoleManager<Iden
     public async Task GetProfileDataAsync(ProfileDataRequestContext context)
     {
         string id = context.Subject.GetSubjectId();
-        ApplicationUser user = await _userManager.FindByNameAsync(id);
+        ApplicationUser user = await _userManager.FindByIdAsync(id);
         ClaimsPrincipal userClaims = await _userClaimsPrincipalFactory.CreateAsync(user);
 
         List<Claim> claims = userClaims.Claims.ToList();
@@ -49,7 +49,7 @@ public ProfileService(UserManager<ApplicationUser> userManager, RoleManager<Iden
     public async Task IsActiveAsync(IsActiveContext context)
     {
         string id = context.Subject.GetSubjectId();
-        ApplicationUser user = await _userManager.FindByNameAsync(id);
+        ApplicationUser user = await _userManager.FindByIdAsync(id);
         context.IsActive = user != null;
     }
 }
