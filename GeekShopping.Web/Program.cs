@@ -9,6 +9,10 @@ builder.Services.AddHttpClient<IProductService, ProductService>(c =>
 {
     c.BaseAddress = new Uri(builder.Configuration["ServiceUrls:ProductAPI"]);
 });
+builder.Services.AddHttpClient<ICartService, CartService>(c =>
+{
+    c.BaseAddress = new Uri(builder.Configuration["ServiceUrls:CartAPI"]);
+});
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(options =>
 {
@@ -28,7 +32,6 @@ builder.Services.AddAuthentication(options =>
     options.Scope.Add("geek_shopping");
     options.SaveTokens = true;
 });
-//builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
