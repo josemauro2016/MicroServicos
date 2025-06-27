@@ -89,7 +89,6 @@ public class CartRepository : ICartRepository
         }
 
         //Checar se o cartHeader é null
-
         var cartHeader = await _context.CartHeaders.AsNoTracking().FirstOrDefaultAsync(c => c.UserId == cart.CartHeader.UserId);
 
         if (cartHeader == null)
@@ -120,6 +119,7 @@ public class CartRepository : ICartRepository
                 //Atualizar contagem de produtos no cartDetails
                 cart.CartDetails.FirstOrDefault().Product = null;
                 cart.CartDetails.FirstOrDefault().Count += cartDetail.Count;
+                cart.CartDetails.FirstOrDefault().Id = cartDetail.Id;
                 cart.CartDetails.FirstOrDefault().CartHeaderId = cartDetail.CartHeaderId;
                 _context.CartDetails.Update(cart.CartDetails.FirstOrDefault());
                 await _context.SaveChangesAsync();

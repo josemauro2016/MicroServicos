@@ -2,11 +2,11 @@
 
 public class CartHeaderViewModel
 {
-    public long Id { get; set; }
+    public long Id { get; set; } //= 0;
 
-    public string UserId { get; set; }
+    public string? UserId { get; set; } //= string.Empty;
 
-    public string CouponCode { get; set; }
+    public string? CouponCode { get; set; } //= string.Empty;
 
-    public string PurchaseAmount { get; set; }
+    public decimal PurchaseAmount { get; set; } //= string.Empty;
 }
