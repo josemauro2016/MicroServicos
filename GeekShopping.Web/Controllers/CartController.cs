@@ -76,6 +76,13 @@ public class CartController : Controller
         return View(await FindUserCart());
     }
 
+    [HttpGet]
+    public async Task<IActionResult> Checkout()
+    {
+
+        return View(await FindUserCart());
+    }
+
     private async Task<CartVielModel> FindUserCart()
     {
         var token = await HttpContext.GetTokenAsync("access_token") ?? string.Empty;
