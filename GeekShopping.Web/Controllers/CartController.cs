@@ -83,6 +83,27 @@ public class CartController : Controller
         return View(await FindUserCart());
     }
 
+    [HttpPost]
+    public async Task<IActionResult> Checkout(CartVielModel model)
+    {
+        var token = await HttpContext.GetTokenAsync("access_token") ?? string.Empty;
+        
+        var response = await _cartService.Checkout(model.CartHeader, token);
+        
+        if (response != null)
+        {
+            return RedirectToAction(nameof(Confirmation));
+        }
+        return View(model);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Confirmation()
+    {
+
+        return View();
+    }
+
     private async Task<CartVielModel> FindUserCart()
     {
         var token = await HttpContext.GetTokenAsync("access_token") ?? string.Empty;
