@@ -1,4 +1,6 @@
+using GeekShopping.OrderAPI.MessageConsumer;
 using GeekShopping.OrderAPI.Model.Context;
+using GeekShopping.OrderAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -11,9 +13,12 @@ var connection = builder.Configuration["MySqlConnection:MysqlConnectionString"];
 builder.Services.AddDbContext<MySqlContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
 
-//builder.Services.AddScoped<ICartRepository, CartRepository>();
+var builder2 = new DbContextOptionsBuilder<MySqlContext>();
+builder2.UseMySql(connection, ServerVersion.AutoDetect(connection));
 
-//builder.Services.AddSingleton<IRabbitMQMessageSender, RabbitMQMessageSender>();
+builder.Services.AddSingleton(new OrderRepository(builder2.Options));
+
+builder.Services.AddHostedService<RabbitMQCheckoutConsumer>();
 
 
 builder.Services.AddControllers();
