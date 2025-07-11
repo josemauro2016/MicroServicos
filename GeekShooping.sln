@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekShopping.MessageBus", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekShopping.OrderAPI", "GeekShopping.OrderAPI\GeekShopping.OrderAPI.csproj", "{00CF427F-BE32-4E94-B694-4652B0C0F75C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payments", "Payments", "{C226BF4A-84DF-4D48-A4C6-B6FFF92A5192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekShopping.PaymentProcessor", "GeekShopping.PaymentProcessor\GeekShopping.PaymentProcessor.csproj", "{76D5E634-2BD4-452B-ACEE-66A05F27B8E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,10 @@ Global
 		{00CF427F-BE32-4E94-B694-4652B0C0F75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00CF427F-BE32-4E94-B694-4652B0C0F75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00CF427F-BE32-4E94-B694-4652B0C0F75C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D5E634-2BD4-452B-ACEE-66A05F27B8E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D5E634-2BD4-452B-ACEE-66A05F27B8E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D5E634-2BD4-452B-ACEE-66A05F27B8E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D5E634-2BD4-452B-ACEE-66A05F27B8E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +77,7 @@ Global
 		{611A0386-5246-4D85-B8A6-E09F5FC93EFD} = {43C22D6E-168C-4BEF-A27C-1AC1E556C4DC}
 		{AAEE1799-759E-403D-AB02-4C7121830C56} = {6DA3C1D8-A43A-42A2-AE9E-B4701FCC317B}
 		{00CF427F-BE32-4E94-B694-4652B0C0F75C} = {43C22D6E-168C-4BEF-A27C-1AC1E556C4DC}
+		{76D5E634-2BD4-452B-ACEE-66A05F27B8E9} = {C226BF4A-84DF-4D48-A4C6-B6FFF92A5192}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {21F606FF-2DD5-481C-A05F-5BEDC8B54C48}
