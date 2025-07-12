@@ -1,6 +1,6 @@
 ﻿namespace GeekShopping.PaymentProcessor;
 
-public class ProcessPayment : IPreocessPayment
+public class ProcessPayment : PreocessPayment
 {
     public bool PaymentProcessor()
     {
