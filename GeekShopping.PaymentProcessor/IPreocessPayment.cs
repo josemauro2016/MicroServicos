@@ -1,6 +1,6 @@
 ﻿namespace GeekShopping.PaymentProcessor
 {
-    public interface PreocessPayment
+    public interface IPreocessPayment
     {
         bool PaymentProcessor();
     }

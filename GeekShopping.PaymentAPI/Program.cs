@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddSingleton<IRabbitMQMessageSender, RabbitMQMessageSender>();
-builder.Services.AddSingleton<PreocessPayment, PreocessPayment>();
+builder.Services.AddSingleton<IPreocessPayment, ProcessPayment>();
 builder.Services.AddHostedService<RabbitMQPaymentConsumer>();
 builder.Services.AddControllers();
 builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
