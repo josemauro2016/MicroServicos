@@ -26,7 +26,6 @@ public class EmailRepository : IEmailRepository
         await using var _db = new MySqlContext(_context);
         _db.Emails.Add(email);
         await _db.SaveChangesAsync();
-        throw new NotImplementedException();
     }
 
 }
